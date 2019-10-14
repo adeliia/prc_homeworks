@@ -8,7 +8,7 @@ const char hexchar[17] = {"0123456789ABCDEF"};
 string dec2hex(int dec) {
     string hex;
     int rem;
-    bool negative;
+    bool negative = false;
 
     if (dec < 0) {
         negative = true;
@@ -37,7 +37,7 @@ int main() {
     string hex;
 
     while(true) {
-        cout << "Please, enter the decimal number:\n";
+        cout << "Please, enter the decimal number (to quit press CTL+d):\n";
         cin >> dec;
 
         if (cin.eof()) break;
