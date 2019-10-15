@@ -34,21 +34,19 @@ void printHex(int dec, string hex) {
 int main() {
 
     int dec;
-    string hex;
+    string hex, input;
 
     while(true) {
         cout << "Please, enter the decimal number (to quit press CTL+d):\n";
-        cin >> dec;
-
-        if (cin.eof()) break;
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore();
-            cout << "Error. No interger was input.\n";
-        }
-        else {
+        cin >> input;
+        if (cin.eof()) break; //quit if CTL+d was pressed
+        try {
+            dec = stoi( input ); //convert the user's input to int if poossible
             hex = dec2hex(dec);
             printHex(dec, hex);
+        }
+        catch( ... ) {
+            cout << "Invalid value, try again\n\n";
         }
     }
 
